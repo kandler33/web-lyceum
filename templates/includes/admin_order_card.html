@@ -1,0 +1,16 @@
+<div class="card w-auto">
+    <div class="card-body d-flex flex-column">
+      <h4 class="card-title">
+          Заказ {{ order.id }} 
+      </h4>
+      <h5 class="card-subtitle">
+          Статус: {{ order.status }}
+      </h5>
+      <h5 class="card-subtitle">
+        Заказчик: {{ order.user.name }}
+      </h5>
+      <a class="btn btn-outline-primary" action="" href="/admin/order/{{ order.id }}">
+        К заказу
+      </a>
+    </div>
+    </div>

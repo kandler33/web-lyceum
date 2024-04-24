@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Корзина</h1>
+  {% set ns = namespace(total=0) %}
+  {% for bascket_item in items %}
+    {% with b_item = bascket_item %}
+      {% include "includes/bascket_item_card.html" %}
+    {% endwith %}
+    {% set ns.total = ns.total + bascket_item.item.price * bascket_item.quantity %}
+  {% endfor %}
+  <hr>
+  <h5>Итог: {{ ns.total }}₽</h5>
+  <a class="btn btn-primary" href="/order/create">Заказать</a>
+{% endblock %}

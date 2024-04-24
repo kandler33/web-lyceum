@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Заказ {{ order.id }}</h1>
+
+  <form action="" method="post">
+    {% if message %}
+      <div class="alert alert-success">{{ message }}</div>
+    {% endif %}
+    <p>
+      {{ form.status.label }}<br>
+      {{ form.status(class="form-control") }}<br>
+      {% for error in form.status.errors %}
+          <div class="alert alert-danger" role="alert">
+              {{ error }}
+          </div>
+      {% endfor %}
+    </p>
+    <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+  </form>
+  <h4>
+    Заказчик: {{ order.user.name }}
+  </h4>
+  <h4>Товары:</h4>
+  {% set ns = namespace(total=0) %}
+  {% for order_item in items %}
+      {% include "includes/order_item_card.html" %}
+      {% set ns.total = ns.total + order_item.item.price * order_item.quantity %}
+  {% endfor %}
+  <hr>
+  <h5>Итог: {{ ns.total }}₽</h5>
+
+{% endblock %}

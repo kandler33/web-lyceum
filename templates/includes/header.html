@@ -1,0 +1,51 @@
+<header>
+
+  <div class="row align-items-center justify-content-around">
+    <div class="col">
+      <a href="/">
+        <img src="{{ url_for('static', filename='img/logo.png') }}"
+             alt="Лого не загрузилось" style="margin:10px">
+      </a>
+    </div>
+    <div class="col-6">
+      <ul class="nav nav-pills nav-fill">
+        <li class="nav-item">
+          <a class="nav-link active" href="/">
+            На главную
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/catalog/items">
+            Список товаров
+          </a>
+        </li>
+        {% if current_user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link active" href="/user">
+              Мой профиль
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/user/bascket">
+              Корзина
+            </a>
+          </li>
+          {% if current_user.is_admin %}
+            <li class="nav-item">
+              <a class="nav-link active" href="/admin">
+                Админ-панель
+              </a>
+            </li>
+          {% endif %}
+        {% else %}
+          <li class="nav-item">
+            <a class="nav-link active" href="/user/login">
+              Войти
+            </a>
+          </li>
+        {% endif %}
+      </ul>
+  </div>
+  <hr>
+
+</header>

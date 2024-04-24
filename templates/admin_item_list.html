@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Список товаров</h1>
+  <a class="btn btn-primary" action="" href="/admin/item/create">
+    Создать новый
+  </a>
+  <hr>
+  <p>
+    {% for category in categories %}
+      <a class="btn btn-outline-dark" action="" href="/admin/items?category={{ category.id }}">
+        {{ category.name }}
+      </a>
+    {% endfor %}
+  </p>
+
+  <div class="row row-cols-2 row-cols-md-4 g-4">
+    {% for item in items %}
+    {% include "includes/admin_item_card.html" %}
+    {% endfor %}
+  </div>
+{% endblock %}

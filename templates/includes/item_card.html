@@ -1,0 +1,20 @@
+<div class="col-sm-4">
+  <div class="card h-100">
+    <div class="card-body d-flex flex-column">
+      <h4 class="card-title text-center">{{ item.name }}</h4>
+      <h5 class="card-subtitle mb-2 text-muted">{{ item.category.name }}</h5>
+      <h5>{{ item.price }}₽</h5>
+      <a href="/catalog/item/{{ item.id }}" class="btn btn-outline-primary mt-auto">К товару</a>
+      <form action="" method="post">
+        <button class = "btn btn-primary mt-auto" type="submit" name="add_item" value="{{ item.id }}">
+          Добавить в корзину
+        </button>
+      </form>
+      <form action="" method="post">
+        <button class = "btn btn-danger mt-auto" type="submit" name="delete_item" value="{{ item.id }}">
+          Убрать из корзины
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Категории</h1>
+  <a class="btn btn-primary" action="" href="/admin/category/create">
+    Создать новую
+  </a>
+  <hr>
+
+  <div class="row row-cols-2 row-cols-md-4 g-4">
+    {% for category in categories %}
+    {% include "includes/admin_category_card.html" %}
+    {% endfor %}
+  </div>
+{% endblock %}

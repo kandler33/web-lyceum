@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <h1>{{ item.name }}</h1>
+  <h4>{{ item.category.name }}</h4>
+  <h5>{{ item.text }}</h5>
+  <h4>{{ item.price }}₽</h4>
+
+  <form action="" method="post">
+    <button class = "btn btn-primary mt-auto" type="submit" name="add_item" value="{{ item.id }}">
+      Добавить в корзину
+    </button>
+  </form>
+
+  <form action="" method="post">
+    <button class = "btn btn-danger mt-auto" type="submit" name="delete_item" value="{{ item.id }}">
+      Убрать из корзины
+    </button>
+  </form>
+
+{% endblock %}

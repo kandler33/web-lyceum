@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Заказы</h1>
+  <p>
+    {% for status in statuses %}
+      <a class="btn btn-outline-dark" action="" href="/admin/orders?status={{ status }}">
+        {{ status }}
+      </a>
+    {% endfor %}
+  </p>
+
+  <div class="row row-cols-2 row-cols-md-4 g-4">
+    {% for order in orders %}
+      {% include "includes/admin_order_card.html" %}
+    {% endfor %}
+  </div>
+{% endblock %}
