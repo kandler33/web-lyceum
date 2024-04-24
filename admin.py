@@ -101,7 +101,7 @@ def edit_item(pk):
 
         db_sess.commit()
 
-        return flask.redirect(f"/item/{item.id}")
+        return flask.redirect(f"/catalog/item/{item.id}")
 
     return flask.render_template("item_form.html", form=form)
 
